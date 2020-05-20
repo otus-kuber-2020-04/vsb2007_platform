@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: http-app
+  name: web
+spec:
+  volumes:
+  - name: app
+    emptyDir: {}
+  containers:
+  - image: vsb2007/http-app
+    readinessProbe: # Добавим проверку готовности
+      httpGet: # веб-сервера отдавать
+        path: /index.html # контент
+        port: 8000
+    livenessProbe:
+      tcpSocket: { port: 8000 }
+    name: web
+    volumeMounts:
+    - name: app
+      mountPath: /app
+  initContainers:
+  - image: busybox:1.31.0
+    name: init-index
+    command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
+    volumeMounts:
+    - name: app
+      mountPath: /app
