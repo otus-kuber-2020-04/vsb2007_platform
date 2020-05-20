@@ -12,3 +12,4 @@ vsb2007 Platform repository
 - Скопировал репозиторий hipster shop, собрал/запушил образ frontend
 - Запустил под frontend - добавил необходимые переменные в env для запуска frontend-pod-healthy.yaml
 
+
