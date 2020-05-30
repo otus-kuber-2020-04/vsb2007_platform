@@ -38,6 +38,8 @@ vsb2007 Platform repository
 ```
 что тоже работает....
 
+## ДЗ:04
+
 - task01
 1. Создать Service Account bob, дать ему роль admin в рамках всего кластера
 2. Создать Service Account dave без доступа к кластеру
