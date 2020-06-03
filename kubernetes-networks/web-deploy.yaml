@@ -34,9 +34,9 @@ spec:
         - name: app
           mountPath: /app
       initContainers:
-      - image: busybox:1.31.0
-        name: init-index
-        command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
-        volumeMounts:
-        - name: app
-          mountPath: /app
+        - name: html-gen
+          image: busybox:musl
+          command: ['sh', '-c', 'wget -O- https://bit.ly/otus-k8s-index-gen | sh']
+          volumeMounts:
+          - name: app
+            mountPath: /app
