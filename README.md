@@ -69,3 +69,4 @@ vsb2007 Platform repository
 10. Подключили приложение web через ingress-nginx
 11. Установили dashboard, настроили ingress-nginx - проблему с https пришлось погуглить
 12. Canary - не сделал
+
