@@ -55,3 +55,18 @@ vsb2007 Platform repository
 3. Дать jane роль admin в рамках Namespace dev
 4. Создать Service Account ken в Namespace dev
 5. Дать ken роль view в рамках Namespace dev
+
+## ДЗ:05
+1. Поиграли с readinessProbe и livenessProbe
+2. Создали Deployment
+3. Создали Service (ClusterIP)
+4. Включили режим IPVS
+5. Установили MetalLB
+6. Прописали маршрут до MetalLB через minikube
+7. Достучались до приложения
+8. Открыли CoreDNS через MetalLB
+9. Создали ingress-nginx
+10. Подключили приложение web через ingress-nginx
+11. Установили dashboard, настроили ingress-nginx - проблему с https пришлось погуглить
+12. Canary - не сделал
+
