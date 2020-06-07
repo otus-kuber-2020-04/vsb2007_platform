@@ -70,3 +70,7 @@ vsb2007 Platform repository
 11. Установили dashboard, настроили ingress-nginx - проблему с https пришлось погуглить
 12. Canary - не сделал
 
+## ДЗ:06
+1. Создали и запустили minio (S3) в Statefulset
+2. Cоздали Secret для minio, зашифровали через base64
+3. Изменили minio-statefulset.yaml - убрали открытые данные, заменив на данные из secret
