@@ -1,0 +1,12 @@
+expose:
+  ingress:
+    hosts:
+      core: harbor.35.238.80.184.nip.io
+    annotations:
+      ingress.kubernetes.io/ssl-redirect: "true"
+      ingress.kubernetes.io/proxy-body-size: "0"
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      cert-manager.io/cluster-issuer: "letsencrypt-production"
+notary:
+  enabled: false

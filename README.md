@@ -74,3 +74,39 @@ vsb2007 Platform repository
 1. Создали и запустили minio (S3) в Statefulset
 2. Cоздали Secret для minio, зашифровали через base64
 3. Изменили minio-statefulset.yaml - убрали открытые данные, заменив на данные из secret
+
+## ДЗ:07
+1. Запустили кластер, установили helm
+2. Установили nginx-ingress, используя helm-3. Версия 1.11.1 не встала. Номер версии убрал
+3. Установили CRD для cert-manager, согласно докоментации, версии v0.15.1
+4. Установили cert-manager
+5. Дополнительно установили Issuer для тестирования - test-resources.yaml
+6. Проверили, что все ок.
+7. Создали Basic ACME Issuer - letsencryp-acme.yml - установил production сервер
+8. Модифицировал данные в volume.yaml для chartmuseum согласно описанию https://cert-manager.io/docs/usage/ingress/ и установил, сертификат подхватился.
+9. Работа с chartmuseum:
+    - helm repo add chartmuseum https://chartmuseum.35.238.80.184.nip.io
+    - для примера взял чарт cert-manager/
+    - helm plugin install https://github.com/chartmuseum/helm-push.git
+    - Включил api в values
+    - helm push cert-manager/ chartmuseum
+    - далее для установки helm install chartmuseum/cert-manager
+10. Harbor:
+    - взял values.yaml c гитхаба
+    - отключил notary
+    - добавил домен для core, подключил cert-manager
+    - уставновил harbor
+11. hipster-shop:
+    - Скачал all-hipster-shop.yaml
+    - Выпилил deployment, service, создал ingress для frontend
+    - Шаблонизировал, создал values.yaml
+    - Без шаблонизации выпилил redis, подключил как dependencies
+12. работу с secrets пропустил
+13. Положил в харбор hipster-shop/, frontend/, redis/
+14. kubecfg
+    - Скачал локально kube.libsonnet - поменял версию api а deployment на "apps/v1"
+    - восстановил работу сервисов
+15. kustomize
+    - вынес productcatalogservice
+    - kubectl apply -k kubernetes-templating/kustomize/overrides/hipster-shop -n hipster-shop # - вернул сервис обратно
+
