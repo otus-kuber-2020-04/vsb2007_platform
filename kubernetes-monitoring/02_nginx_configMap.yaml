@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  config : |
+    server{
+        location /basic_status {
+            stub_status;
+        }
+    }
