@@ -130,3 +130,12 @@ NAME                         COMPLETIONS   DURATION   AGE
 backup-mysql-instance-job    1/1           4s         13h
 restore-mysql-instance-job   1/1           32s        13h
 ```
+
+## ДЗ:09
+1. Посмотрел доку на ngx_http_stub_status_module
+2. Проверил что обычный образ nginx уже собран с этим модулем `nginx -V 2>&1 | grep -o with-http_stub_status_module`
+3. Создал конфиг для кубера с `location = /basic_status`
+4. Через волюм подцепил его nginx
+5. Запустил nginx/nginx-prometheus-exporter:0.8.0 в кубере
+6. Выпустил через сервис
+7. Сервисы - тестировались на кубере с metallb

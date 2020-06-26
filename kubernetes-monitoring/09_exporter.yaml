@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-exporter
+  name: nginx-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-exporter
+  template:
+    metadata:
+      labels:
+        app: nginx-exporter
+    spec:
+      containers:
+      - image: nginx/nginx-prometheus-exporter:0.8.0
+        imagePullPolicy: Always
+        name: nginx-exporter
+        args: ["-nginx.scrape-uri", "http://nginx-service/basic_status"]
+        ports:
+        - containerPort: 9113
+          protocol: TCP
