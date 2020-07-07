@@ -139,3 +139,7 @@ restore-mysql-instance-job   1/1           32s        13h
 5. Запустил nginx/nginx-prometheus-exporter:0.8.0 в кубере
 6. Выпустил через сервис
 7. Сервисы - тестировались на кубере с metallb
+
+## ДЗ:10
+1. Запустили HipsterShop в созданном в GCP кластере
+2. Установили EFK
