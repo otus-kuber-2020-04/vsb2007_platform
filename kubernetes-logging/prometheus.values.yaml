@@ -13,7 +13,7 @@ grafana:
     }
 
     hosts:
-      - grafana.104.198.233.233.xip.io
+      - grafana.35.222.119.183.xip.io
 
 prometheusOperator:
   ##
@@ -45,4 +45,4 @@ prometheus:
     }
 
     hosts:
-      - prometheus.104.198.233.233.xip.io
+      - prometheus.35.222.119.183.xip.io
