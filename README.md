@@ -151,3 +151,4 @@ restore-mysql-instance-job   1/1           32s        13h
 8. Установил Loki
 9. Для prometheus добавил additionalDataSources для Loki
 10. В prometheus создал дашборад с панелями
+
