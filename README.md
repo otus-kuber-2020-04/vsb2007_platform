@@ -139,3 +139,16 @@ restore-mysql-instance-job   1/1           32s        13h
 5. Запустил nginx/nginx-prometheus-exporter:0.8.0 в кубере
 6. Выпустил через сервис
 7. Сервисы - тестировались на кубере с metallb
+
+## ДЗ:10
+1. Запустили HipsterShop в созданном в GCP кластере
+2. Установили EFK, Porometheus operator
+3. Установили nginx-ingress (правильный репо для helm stable/nginx-ingress), поменял конфиг для логов в json
+4. Обновили релизы с учетом доступа к kibana, grafana, prometheus через полученный ip
+5. запустили Fluent Bit
+6. В ELK пересоздал индекс
+7. Создал визуализации в kibana
+8. Установил Loki
+9. Для prometheus добавил additionalDataSources для Loki
+10. В prometheus создал дашборад с панелями
+
