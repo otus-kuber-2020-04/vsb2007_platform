@@ -550,3 +550,5 @@ data:
 ```
 Создал фаил nginx-ssl.yaml
 Применил все манифесты
+![](kubernetes-vault/ssl1.JPG)
+![](kubernetes-vault/ssl2.JPG)
