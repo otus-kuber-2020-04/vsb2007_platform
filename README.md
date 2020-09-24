@@ -552,3 +552,52 @@ data:
 Применил все манифесты
 ![](kubernetes-vault/ssl1.JPG)
 ![](kubernetes-vault/ssl2.JPG)
+
+
+## ДЗ: 24
+
+## установка используя kubespray
+```ansible-playbook -i inventory/mycluster/inventory.ini --become --become-user=root cluster.yml -v --private-key=~/.ssh/gcloud -u ubuntu -e kube_version=v1.18.5```
+```
+# kubectl get nodes
+NAME      STATUS   ROLES    AGE   VERSION
+master1   Ready    master   13m   v1.18.5
+master2   Ready    master   13m   v1.18.5
+master3   Ready    master   13m   v1.18.5
+node1     Ready    <none>   11m   v1.18.5
+node2     Ready    <none>   11m   v1.18.5
+```
+## обновление
+```ansible-playbook -i inventory/mycluster/inventory.ini --become --become-user=root upgrade-cluster.yml -v --private-key=~/.ssh/gcloud -u ubuntu -e kube_version=v1.19.2```
+```
+NAME      STATUS                     ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+master1   Ready,SchedulingDisabled   master   18m   v1.19.2   10.2.0.11     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master2   Ready                      master   18m   v1.18.5   10.2.0.12     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master3   Ready                      master   18m   v1.18.5   10.2.0.13     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node1     Ready                      <none>   16m   v1.18.5   10.2.0.21     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node2     Ready                      <none>   16m   v1.18.5   10.2.0.22     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+```
+```
+NAME      STATUS                     ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+master1   Ready                      master   21m   v1.19.2   10.2.0.11     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master2   Ready,SchedulingDisabled   master   21m   v1.18.5   10.2.0.12     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master3   Ready                      master   21m   v1.18.5   10.2.0.13     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node1     Ready                      <none>   20m   v1.18.5   10.2.0.21     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node2     Ready                      <none>   20m   v1.18.5   10.2.0.22     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+```
+```
+NAME      STATUS                     ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+master1   Ready                      master   29m   v1.19.2   10.2.0.11     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master2   Ready                      master   28m   v1.19.2   10.2.0.12     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master3   Ready                      master   28m   v1.19.2   10.2.0.13     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node1     Ready,SchedulingDisabled   <none>   27m   v1.18.5   10.2.0.21     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node2     Ready                      <none>   27m   v1.18.5   10.2.0.22     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+```
+```
+NAME      STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+master1   Ready    master   33m   v1.19.2   10.2.0.11     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master2   Ready    master   32m   v1.19.2   10.2.0.12     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+master3   Ready    master   32m   v1.19.2   10.2.0.13     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node1     Ready    <none>   31m   v1.19.2   10.2.0.21     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+node2     Ready    <none>   31m   v1.19.2   10.2.0.22     <none>        Ubuntu 18.04.5 LTS   5.4.0-1024-gcp   docker://19.3.13
+```
