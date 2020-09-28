@@ -563,10 +563,11 @@ data:
 3. Скопировал конфиги
 ```
 git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
 sudo pip install -r requirements.txt
 cp -rfp inventory/sample inventory/mycluster
 ```
-4. Отредактировал фаил `inventory/mycluster/inventory.ini`
+4. Отредактировал фаил [inventory/mycluster/inventory.ini](inventory/mycluster/inventory.ini)
 5. Запустил установку
 ```ansible-playbook -i inventory/mycluster/inventory.ini --become --become-user=root cluster.yml -v --private-key=~/.ssh/gcloud -u ubuntu -e kube_version=v1.18.5```
 ```
